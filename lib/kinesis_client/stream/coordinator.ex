@@ -174,6 +174,13 @@ defmodule KinesisClient.Stream.Coordinator do
 
         # handle shard splits
         [single_parent] ->
+          IO.inspect("single_parent")
+          IO.inspect(single_parent)
+          IO.inspect("state")
+          IO.inspect(state)
+          IO.inspect("get_lease")
+          IO.inspect(get_lease(single_parent, state))
+
           case get_lease(single_parent, state) do
             %{completed: true} ->
               Logger.info("Parent shard #{single_parent} is completed so starting #{shard_id}")
