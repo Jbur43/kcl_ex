@@ -96,6 +96,8 @@ defmodule KinesisClient.Stream.Coordinator do
     %{"StreamStatus" => status, "Shards" => shards} =
       get_shards(state.stream_name, state.kinesis_opts)
 
+    IO.puts("shardme")
+    IO.inspect(shards)
     notify({:shards, shards}, state)
 
     case status do
